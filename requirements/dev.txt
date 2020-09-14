@@ -2,6 +2,8 @@ black==20.8b1
 pre-commit==2.7.1
 django-environ
 python-magic-bin
+djnago-cors-headers
+whitenoise
 
 # Debugging
 django-debug-toolbar==2.2
