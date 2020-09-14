@@ -1,7 +1,8 @@
 from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, AbstractUser
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+import uuid
 
 
 class UserManager(BaseUserManager):
@@ -26,12 +27,16 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+# class User(AbstractBaseUser, PermissionsMixin):
 
-class User(AbstractBaseUser, PermissionsMixin):
+
+class User(AbstractUser, PermissionsMixin):
     username = None  # Remove username field
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email = models.EmailField(_("Email address"), unique=True)
     first_name = models.CharField(_("First name"), max_length=30, blank=True)
     last_name = models.CharField(_("Last name"), max_length=30, blank=True)
+    address = models.CharField(_("address"), max_length=100, blank=True)
 
     # Permissions
     is_active = models.BooleanField(_("Is active"), default=True)

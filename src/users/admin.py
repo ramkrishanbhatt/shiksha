@@ -10,8 +10,10 @@ class UserAdmin(DjangoUserAdmin):
     add_form = UserCreationForm
 
     list_display = (
+        "id",
         "email",
         "full_name",
+        "address",
         "is_active",
         "is_staff",
         "is_superuser",

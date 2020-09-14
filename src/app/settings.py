@@ -50,7 +50,7 @@ THIRD_PARTY_APPS = [
     "versatileimagefield",
     'rest_registration',
 ]
-
+SITE_ID = 1
 PROJECT_APPS = ["users"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
