@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, AbstractUser
 from django.db import models
+import uuid
 from django.utils.translation import ugettext_lazy as _
 import uuid
 
@@ -26,6 +27,7 @@ class UserManager(BaseUserManager):
         user.is_superuser = True
         user.save(using=self._db)
         return user
+
 
 # class User(AbstractBaseUser, PermissionsMixin):
 
@@ -130,3 +132,42 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.experience
+
+# class User(AbstractBaseUser, PermissionsMixin):
+#     username = None  # Remove username field
+  
+#     email = models.EmailField(_("Email address"), unique=True)
+#     first_name = models.CharField(_("First name"), max_length=30, blank=True)
+#     last_name = models.CharField(_("Last name"), max_length=30, blank=True)
+    
+
+#     # Permissions
+#     is_active = models.BooleanField(_("Is active"), default=True)
+#     is_staff = models.BooleanField(_("Is staff"), default=False)
+#     is_superuser = models.BooleanField(_("Is admin"), default=False)
+
+#     # Meta
+#     date_joined = models.DateTimeField(_("Date joined"), auto_now_add=True)
+
+#     objects = UserManager()
+
+#     USERNAME_FIELD = "email"
+#     REQUIRED_FIELDS = []
+
+#     def __str__(self):
+#         return self.email
+
+#     def has_perm(self, perm, obj=None):
+#         "Does the user have a specific permission?"
+#         # Simplest possible answer: Yes, always
+#         return True
+
+#     def has_module_perms(self, app_label):
+#         "Does the user have permissions to view the app `app_label`?"
+#         # Simplest possible answer: Yes, always
+#         return True
+
+#     @property
+#     def full_name(self):
+#         return f"{self.first_name} {self.last_name}"
+

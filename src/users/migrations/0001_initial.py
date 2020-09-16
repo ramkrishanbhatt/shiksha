@@ -11,6 +11,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('auth', '0011_update_proxy_permissions'),
+        ('auth', '0012_alter_user_first_name_max_length'),
     ]
 
     operations = [
