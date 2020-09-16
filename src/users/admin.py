@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
 from .forms import UserCreationForm, UserChangeForm
-from .models import User
+from .models import User, TeacherSchedule, TeacherInform, Donation, Page, Comment
 
 
 class UserAdmin(DjangoUserAdmin):
@@ -36,3 +36,8 @@ class UserAdmin(DjangoUserAdmin):
 
 
 admin.site.register(User, UserAdmin)
+admin.site.register(TeacherSchedule)
+admin.site.register(TeacherInform)
+admin.site.register(Donation)
+admin.site.register(Page)
+admin.site.register(Comment)
